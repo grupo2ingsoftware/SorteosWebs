@@ -1,0 +1,29 @@
+@(premioForm: Form[Premio])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+@main(Html("Creacion de nuevo premio")) {
+    <h3>Agregar premio</h3>
+    @form(routes.Premios.save()) {
+        <fieldset>
+        @inputText(premioForm("numPremio"), '_label -> "Numero de premio")
+        @inputText(premioForm("descPremio"), '_label -> "Descuento de premio")
+        @select(
+                premioForm("codSorteo"), 
+                options(Sorteo.options), 
+                '_label -> "Sorteo", '_default -> "-- Eliga un sorteo --",
+                '_showConstraints -> false
+        )
+        @select(
+                premioForm("numParticipante"), 
+                options(Participante.options), 
+                '_label -> "Participante", '_default -> "-- Eliga un participante --",
+                '_showConstraints -> false
+        )
+        
+        </fieldset>
+    <div class="actions">
+        <input type="submit" value="Crea premio" class="btn primary"> or
+        <a href="@routes.Sorteos.blank()" class="btn">Cancel</a>
+    </div>
+    }
+}

@@ -1,0 +1,28 @@
+@(participanteForm: Form[Participante])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+@main(Html("Creacion de nuevo participante")) {
+    <h3>Agregar participante</h3>
+    @form(routes.Participantes.save()) {
+        <fieldset>
+        @inputText(participanteForm("numParticipante"), '_label -> "Numero de participante")
+        @select(
+                participanteForm("codSorteo"), 
+                options(Sorteo.options), 
+                '_label -> "Sorteo", '_default -> "-- Eliga un sorteo --",
+                '_showConstraints -> false
+        )
+        @select(
+                participanteForm("numPersona"), 
+                options(Persona.options), 
+                '_label -> "Persona", '_default -> "-- Eliga una persona --",
+                '_showConstraints -> false
+        )
+        
+        </fieldset>
+    <div class="actions">
+        <input type="submit" value="Crea participante" class="btn primary"> or
+        <a href="@routes.Sorteos.blank()" class="btn">Cancel</a>
+    </div>
+    }
+}

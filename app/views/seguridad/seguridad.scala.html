@@ -1,0 +1,13 @@
+@main(Html("Gestion de seguridad")) {
+<p><h3>Gestion de Seguridad</h3></p>
+@if(flash.containsKey("success")) {
+<div class="alert-message warning">
+<strong>Hecho.</strong> @flash.get("success")
+</div>
+}
+<h5><a href="@routes.Seguridad.newUser">Nuevo usuario</a></h5>
+<h5><a href="@routes.Seguridad.list">Listar usuarios</a></h5>
+<h5><a href="@routes.Seguridad.login">Inicio de sesion</a></h5>
+<h5><a href="@routes.Seguridad.logout">Cerrar sesion</a></h5>
+<br/>
+}

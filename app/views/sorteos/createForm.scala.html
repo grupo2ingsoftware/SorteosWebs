@@ -1,0 +1,18 @@
+@(sorteoForm: Form[Sorteo])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render) }
+@main(Html("Creacion de nuevo sorteo")) {
+    <h3>Agregar sorteo</h3>
+    @form(routes.Sorteos.save()) {
+        <fieldset>
+        @inputText(sorteoForm("codSorteo"), '_label -> "Codigo de sorteo")
+        @inputText(sorteoForm("nomSorteo"), '_label -> "Nombre de sorteo")
+        
+        
+        </fieldset>
+    <div class="actions">
+        <input type="submit" value="Crea sorteo" class="btn primary"> or
+        <a href="@routes.Sorteos.blank()" class="btn">Cancel</a>
+    </div>
+    }
+}

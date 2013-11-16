@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Sorteos
+GET /sorteos controllers.Sorteos.blank()
+# Participantes
+GET /participantes controllers.Participantes.blank()
+# Seguridad
+GET /seguridad controllers.Seguridad.blank()
+
+GET /seguridad/new controllers.Seguridad.newUser()
+GET /seguridad/list controllers.Seguridad.list()
+GET /seguridad/login controllers.Seguridad.login()
+GET /seguridad/logout controllers.Seguridad.logout()
+GET /seguridad/save controllers.Seguridad.save()
+
+
+
+GET /sorteos/new controllers.Sorteos.newSorteo()
+GET /sorteos/list controllers.Sorteos.list()
+POST /sorteos controllers.Sorteos.save()
+
+
+GET /participantes/new controllers.Participantes.newParticipante()
+
+POST /participantes controllers.Participantes.save()
+
+GET /premios controllers.Premios.blank()
+GET /premios/new controllers.Premios.newPremio()
+POST /premios controllers.Premios.save()
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

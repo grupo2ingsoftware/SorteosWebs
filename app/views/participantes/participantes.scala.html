@@ -1,0 +1,10 @@
+@main(Html("Gestion de participantes")) {
+<p><h3>Gestion de Participantes</h3></p>
+@if(flash.containsKey("success")) {
+<div class="alert-message warning">
+<strong>Hecho.</strong> @flash.get("success")
+</div>
+}
+<h5><a href="@routes.Participantes.newParticipante">Nuevo Participante</a></h5>
+<br/>
+}

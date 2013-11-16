@@ -1,0 +1,13 @@
+@main(Html("Gestion de sorteo")) {
+<p><h3>Gestion de Sorteo</h3></p>
+@if(flash.containsKey("success")) {
+<div class="alert-message warning">
+<strong>Hecho.</strong> @flash.get("success")
+</div>
+}
+<h5><a href="@routes.Sorteos.newSorteo">Nuevo sorteo</a></h5>
+<h5><a href="@routes.Sorteos.list">Listar sorteos</a></h5>
+<h5><a href="@routes.Premios.newPremio">Asignar premio</a></h5>
+
+<br/>
+}
